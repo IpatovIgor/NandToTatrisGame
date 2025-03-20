@@ -1,0 +1,24 @@
+class Bullet{
+    field int toY;
+    field int nowX, nowY;
+
+    constructor Bullet new(int x, int y){
+        let nowX = x;
+        let toY = y;
+        let nowY = 200;
+        return this;
+    }
+
+    method void fly(){
+        while (nowY > toY){
+            do Screen.setColor(true);
+            do Screen.drawRectangle(nowX, nowY, nowX + 3, nowY - 3);
+            do Sys.wait(10);
+            do Screen.setColor(false);
+            do Screen.drawRectangle(nowX, nowY, nowX + 3, nowY - 3);
+            let nowY = nowY - 7;
+        }
+
+        return;
+    }
+}

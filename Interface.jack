@@ -1,0 +1,26 @@
+class Interface{
+    field String startMessage;
+
+    constructor Interface new(){
+        let startMessage = "Press Enter to start";
+        return this;
+    }
+
+    method void drawStartString(){
+        var char key;
+        var boolean entrPressed;
+
+        do Output.moveCursor(12, 20);
+        do Output.printString(startMessage);
+
+        let entrPressed = false;
+        while(~entrPressed){
+            let key = Keyboard.keyPressed();
+            if (key = 128) { let entrPressed = true; }
+        }
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        return;
+   }
+}

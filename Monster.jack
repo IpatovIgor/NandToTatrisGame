@@ -1,20 +1,2 @@
 class Monster {
-    field int xLeft, xRight, y;
-    
-    constructor Monster new(int leftX, rightX){
-        let xLeft = leftX;
-        let xRight = rightX;
-        do draw();
-        return this;
-    }
-
-    method void draw() {
-        do Screen.setColor(true);
-        
-    }
-
-    method void move(){
-        let y = y + 1;
-        do draw();
-    }
 }

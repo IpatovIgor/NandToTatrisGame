@@ -1,10 +1,11 @@
 class FieldToGame {
     field Ship ship;
     field int direction;
+    field Interface interface;
 
     constructor FieldToGame new(){
-        let ship = Ship.new(0, 210);
         let direction = 0;
+        let interface = Interface.new();
         return this;
     }
 
@@ -21,6 +22,10 @@ class FieldToGame {
         var boolean exit;
         let exit = false;
 
+        do interface.drawStartString();
+
+        let ship = Ship.new(0, 210);
+
         while (~exit){
 
             while (key = 0) {
@@ -31,6 +36,7 @@ class FieldToGame {
             if (key = 140) { let exit = true; }   //a key
             if (key = 130) { let direction = 1; }   //left
             if (key = 132) { let direction = 2; }   //right
+            if (key = 32) { do ship.Shoot(); }
 
             while (~(key = 0)) {
                 let key = Keyboard.keyPressed();
