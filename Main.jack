@@ -1,3 +1,9 @@
 class Main {
-    
+    function void main () {
+        var FieldToGame game;
+        let game = FieldToGame.new();
+        do game.run();
+        do game.dispose();
+        return;
+    }
 }

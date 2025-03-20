@@ -1,0 +1,48 @@
+class FieldToGame {
+    field Ship ship;
+    field int direction;
+
+    constructor FieldToGame new(){
+        let ship = Ship.new(0, 210);
+        let direction = 0;
+        return this;
+    }
+
+    method void moveShip(){
+        if (direction = 1) { do ship.moveLeft(); }
+        if (direction = 2) { do ship.moveRight(); }
+
+        do Sys.wait(5);
+        return;
+    }
+
+    method void run(){
+        var char key;
+        var boolean exit;
+        let exit = false;
+
+        while (~exit){
+
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+                do moveShip();
+            }
+
+            if (key = 140) { let exit = true; }   //a key
+            if (key = 130) { let direction = 1; }   //left
+            if (key = 132) { let direction = 2; }   //right
+
+            while (~(key = 0)) {
+                let key = Keyboard.keyPressed();
+                do moveShip();
+            }
+        }
+        return;
+    }
+
+    method void dispose(){
+        do ship.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}
