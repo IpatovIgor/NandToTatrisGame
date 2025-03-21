@@ -1,39 +1,37 @@
 class FieldToGame {
-    field boolean gameIsLost; 
-    field Ship ship;
-    field int direction;
-    field MonsterController monsterController;
-    field Interface interface;
+    field boolean fieldGameIsLost; 
+    field Ship fieldShip;
+    field int fieldDirection;
 
     constructor FieldToGame new(){
-        let direction = 0;
-        let gameIsLost = false;
-        let interface = Interface.new();
-        let monsterController = MonsterController.new(interface, this);
+        let fieldDirection = 0;
+        let fieldGameIsLost = false;
         return this;
     }
 
     method void LostGame(){
-        let gameIsLost = true;
+        let fieldGameIsLost = true;
         return;
     }
 
     method void moveShip(){
-        if (direction = 1) { do ship.moveLeft(); }
-        if (direction = 2) { do ship.moveRight(); }
+        if (fieldDirection = 1) { do fieldShip.moveLeft(); }
+        if (fieldDirection = 2) { do fieldShip.moveRight(); }
 
         do Sys.wait(5);
         return;
     }
 
-    method void run(){
+    method void run(MonsterController runMonsterController){
         var char key;
         var boolean exit;
+        var Interface runInteface;
         let exit = false;
+        let runInteface = Interface.new();
 
-        do interface.drawStartString();
+        do runInteface.drawStartString();
 
-        let ship = Ship.new(0, 210, monsterController);
+        let fieldShip = Ship.new(0, 210, runMonsterController);
 
         while (~exit){
             if (key = 0) {
@@ -42,25 +40,25 @@ class FieldToGame {
             }
 
             if (key = 140) { let exit = true; }   //a key
-            if (key = 130) { let direction = 1; }   //left
-            if (key = 132) { let direction = 2; }   //right
-            if (key = 32) { do ship.Shoot(); }
+            if (key = 130) { let fieldDirection = 1; }   //left
+            if (key = 132) { let fieldDirection = 2; }   //right
+            if (key = 32) { do fieldShip.Shoot(); }
 
-            do monsterController.Update();
+            do runMonsterController.Update();
 
             if (~(key = 0)) {
                 let key = Keyboard.keyPressed();
                 do moveShip();
             }
 
-            if (gameIsLost) { let exit = true; }
+            if (fieldGameIsLost) { let exit = true; }
         }
 
         return;
     }
 
     method void dispose(){
-        do ship.dispose();
+        do fieldShip.dispose();
         do Memory.deAlloc(this);
         return;
     }

@@ -1,23 +1,21 @@
 class MonsterController{
-    field int index;
+    field int controllerIndex;
     field Array monsterArray;
-    field Interface interface;
-    field int monsterCount;
-    field FieldToGame fieldToGame;
+    field Interface constrollerInterface;
+    field int constrollerMonsterCount;
 
-    constructor MonsterController new(Interface interface1, FieldToGame fieldToGame1){
+    constructor MonsterController new(){
         var int i;
         let i = 0;
-        let monsterCount = 30;
-        let interface = interface1;
-        let fieldToGame = fieldToGame1;
-        let monsterArray = Array.new(monsterCount);
-        while (i < monsterCount){
+        let constrollerMonsterCount = 30;
+        let constrollerInterface = Interface.new();
+        let monsterArray = Array.new(constrollerMonsterCount);
+        while (i < constrollerMonsterCount){
             let i = i + 1;
             let monsterArray[i] = -1;
         }
 
-        let index = 0;
+        let controllerIndex = 0;
         return this;
     }
 
@@ -27,7 +25,7 @@ class MonsterController{
         var boolean makeLine;
         let makeLine = true;
         let i = 0;
-        while (i < monsterCount){
+        while (i < constrollerMonsterCount){
             if (~(monsterArray[i] = -1)){
                 let monster = monsterArray[i];
                 if (monster.GetY() < 40){
@@ -52,11 +50,11 @@ class MonsterController{
         let x = 13;
         let spaceSize = 3;
         while (x < 479){
-            if (index < monsterCount){
+            if (controllerIndex < constrollerMonsterCount){
                 let monster = Monster.new(x, 0);
                 let x = x + 32 + spaceSize;
-                let monsterArray[index] = monster;
-                let index = index + 1;
+                let monsterArray[controllerIndex] = monster;
+                let controllerIndex = controllerIndex + 1;
             }
             else{
                 let x = x + 32 + spaceSize;
@@ -82,13 +80,12 @@ class MonsterController{
         var boolean gameIsLost;
         let i = 0;
         let gameIsLost = false;
-        while (i < monsterCount){
+        while (i < constrollerMonsterCount){
             if (~(gameIsLost)){
                 if (~(monsterArray[i] = -1)){
                     let monster = monsterArray[i];
                     if (monster.GetY() > 223){
-                        do interface.drawLostString();
-                        do fieldToGame.LostGame();
+                        do constrollerInterface.drawLostString();
                         let gameIsLost = true;
                     }
                     else{

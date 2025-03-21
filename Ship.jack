@@ -1,89 +1,89 @@
 class Ship {
-    field int x, y;
-    field MonsterController monsterController;
+    field int shipX, shipY;
+    field MonsterController shipMonsterController;
 
     constructor Ship new(int Ax, int Ay, MonsterController monsterController1) {
-        let x = Ax;
-        let y = Ay;
-        let monsterController = monsterController1;
+        let shipX = Ax;
+        let shipY = Ay;
+        let shipMonsterController = monsterController1;
         do draw();
         return this;
     }
 
     method void draw() {
         do Screen.setColor(true);
-        do Screen.drawPixel(x + 12, y);
-        do Screen.drawPixel(x + 13, y);
-        do Screen.drawPixel(x + 18, y);
-        do Screen.drawPixel(x + 19, y);
-        do Screen.drawPixel(x + 12, y + 1);
-        do Screen.drawPixel(x + 13, y + 1);
-        do Screen.drawPixel(x + 18, y + 1);
-        do Screen.drawPixel(x + 19, y + 1);
-        do Screen.drawLine(x + 10, y + 2, x + 21, y + 2);
-        do Screen.drawLine(x + 10, y + 3, x + 21, y + 3);
-        do Screen.drawLine(x + 8, y + 4, x + 23, y + 4);
-        do Screen.drawLine(x + 8, y + 5, x + 23, y + 5);
-        do Screen.drawLine(x + 8, y + 6, x + 23, y + 6);
-        do Screen.drawLine(x + 8, y + 7, x + 23, y + 7);
-        do Screen.drawLine(x + 6, y + 8, x + 25, y + 8);
-        do Screen.drawLine(x + 6, y + 9, x + 25, y + 9);
-        do Screen.drawLine(x + 4, y + 10, x + 27, y + 10);
-        do Screen.drawLine(x + 4, y + 11, x + 27, y + 11);
-        do Screen.drawLine(x + 2, y + 12, x + 29, y + 12);
-        do Screen.drawLine(x + 2, y + 13, x + 29, y + 13);
-        do Screen.drawLine(x + 4, y + 14, x + 27, y + 14);
-        do Screen.drawLine(x + 4, y + 15, x + 27, y + 15);
-        do Screen.drawLine(x + 6, y + 16, x + 25, y + 16);
-        do Screen.drawLine(x + 6, y + 17, x + 25, y + 17);
-        do Screen.drawLine(x + 8, y + 18, x + 23, y + 18);
-        do Screen.drawLine(x + 8, y + 19, x + 23, y + 19);
+        do Screen.drawPixel(shipX + 12, shipY);
+        do Screen.drawPixel(shipX + 13, shipY);
+        do Screen.drawPixel(shipX + 18, shipY);
+        do Screen.drawPixel(shipX + 19, shipY);
+        do Screen.drawPixel(shipX + 12, shipY + 1);
+        do Screen.drawPixel(shipX + 13, shipY + 1);
+        do Screen.drawPixel(shipX + 18, shipY + 1);
+        do Screen.drawPixel(shipX + 19, shipY + 1);
+        do Screen.drawLine(shipX + 10, shipY + 2, shipX + 21, shipY + 2);
+        do Screen.drawLine(shipX + 10, shipY + 3, shipX + 21, shipY + 3);
+        do Screen.drawLine(shipX + 8, shipY + 4, shipX + 23, shipY + 4);
+        do Screen.drawLine(shipX + 8, shipY + 5, shipX + 23, shipY + 5);
+        do Screen.drawLine(shipX + 8, shipY + 6, shipX + 23, shipY + 6);
+        do Screen.drawLine(shipX + 8, shipY + 7, shipX + 23, shipY + 7);
+        do Screen.drawLine(shipX + 6, shipY + 8, shipX + 25, shipY + 8);
+        do Screen.drawLine(shipX + 6, shipY + 9, shipX + 25, shipY + 9);
+        do Screen.drawLine(shipX + 4, shipY + 10, shipX + 27, shipY + 10);
+        do Screen.drawLine(shipX + 4, shipY + 11, shipX + 27, shipY + 11);
+        do Screen.drawLine(shipX + 2, shipY + 12, shipX + 29, shipY + 12);
+        do Screen.drawLine(shipX + 2, shipY + 13, shipX + 29, shipY + 13);
+        do Screen.drawLine(shipX + 4, shipY + 14, shipX + 27, shipY + 14);
+        do Screen.drawLine(shipX + 4, shipY + 15, shipX + 27, shipY + 15);
+        do Screen.drawLine(shipX + 6, shipY + 16, shipX + 25, shipY + 16);
+        do Screen.drawLine(shipX + 6, shipY + 17, shipX + 25, shipY + 17);
+        do Screen.drawLine(shipX + 8, shipY + 18, shipX + 23, shipY + 18);
+        do Screen.drawLine(shipX + 8, shipY + 19, shipX + 23, shipY + 19);
         do Screen.setColor(false);
-        do Screen.drawPixel(x + 12, y + 8);
-        do Screen.drawPixel(x + 13, y + 8);
-        do Screen.drawPixel(x + 18, y + 8);
-        do Screen.drawPixel(x + 19, y + 8);
-        do Screen.drawLine(x + 12, y + 9, x + 19, y + 9);
-        do Screen.drawLine(x + 10, y + 14, x + 21, y + 14);
-        do Screen.drawPixel(x + 14, y + 16);
-        do Screen.drawPixel(x + 15, y + 16);
-        do Screen.drawPixel(x + 14, y + 17);
-        do Screen.drawPixel(x + 15, y + 17);
-        do Screen.drawPixel(x + 10, y + 18);
-        do Screen.drawPixel(x + 11, y + 18);
-        do Screen.drawPixel(x + 20, y + 18);
-        do Screen.drawPixel(x + 21, y + 18);
-        do Screen.drawRectangle(x + 8, y + 20, x + 13, y + 21);
-        do Screen.drawRectangle(x + 18, y + 20, x + 23, y + 21);
-        do Screen.drawPixel(x + 10, y + 24);
-        do Screen.drawPixel(x + 11, y + 24);
-        do Screen.drawPixel(x + 14, y + 24);
-        do Screen.drawPixel(x + 15, y + 24);
-        do Screen.drawPixel(x + 18, y + 24);
-        do Screen.drawPixel(x + 19, y + 24);
-        do Screen.drawRectangle(x + 14, y + 28, x + 15, y + 29);
+        do Screen.drawPixel(shipX + 12, shipY + 8);
+        do Screen.drawPixel(shipX + 13, shipY + 8);
+        do Screen.drawPixel(shipX + 18, shipY + 8);
+        do Screen.drawPixel(shipX + 19, shipY + 8);
+        do Screen.drawLine(shipX + 12, shipY + 9, shipX + 19, shipY + 9);
+        do Screen.drawLine(shipX + 10, shipY + 14, shipX + 21, shipY + 14);
+        do Screen.drawPixel(shipX + 14, shipY + 16);
+        do Screen.drawPixel(shipX + 15, shipY + 16);
+        do Screen.drawPixel(shipX + 14, shipY + 17);
+        do Screen.drawPixel(shipX + 15, shipY + 17);
+        do Screen.drawPixel(shipX + 10, shipY + 18);
+        do Screen.drawPixel(shipX + 11, shipY + 18);
+        do Screen.drawPixel(shipX + 20, shipY + 18);
+        do Screen.drawPixel(shipX + 21, shipY + 18);
+        do Screen.drawRectangle(shipX + 8, shipY + 20, shipX + 13, shipY + 21);
+        do Screen.drawRectangle(shipX + 18, shipY + 20, shipX + 23, shipY + 21);
+        do Screen.drawPixel(shipX + 10, shipY + 24);
+        do Screen.drawPixel(shipX + 11, shipY + 24);
+        do Screen.drawPixel(shipX + 14, shipY + 24);
+        do Screen.drawPixel(shipX + 15, shipY + 24);
+        do Screen.drawPixel(shipX + 18, shipY + 24);
+        do Screen.drawPixel(shipX + 19, shipY + 24);
+        do Screen.drawRectangle(shipX + 14, shipY + 28, shipX + 15, shipY + 29);
         return;
     }
 
     method void erase() {
         do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + 31, y + 31);
+        do Screen.drawRectangle(shipX, shipY, shipX + 31, shipY + 31);
         return;
     }
 
     method void moveLeft() {
-        if (x > 0) {
+        if (shipX > 0) {
             do erase();
-            let x = x - 2;
+            let shipX = shipX - 2;
             do draw();
         }
         return;
     }
 
     method void moveRight() {
-        if (x < 479) {
+        if (shipX < 479) {
             do erase();
-            let x = x + 2;
+            let shipX = shipX + 2;
             do draw();
         }
         return;
@@ -96,30 +96,38 @@ class Ship {
     }
 
     method void Shoot(){
-        var int index;
-        var Monster curentMonster;
+        var int shipIndex;
+        var Monster shipCurentMonster;
         var Monster shootedMonster;
-        var boolean monsterIsFound;
-        var Bullet bullet;
-        var int indexOfMonster;
+        var boolean shipMonsterIsFound;
+        var Bullet shipBullet;
+        var int shipIndexOfMonster;
+        let shipIndex = 0;
         let shootedMonster = Monster.new(-1, -1);
-        let indexOfMonster = -1;
-        let monsterIsFound = false;
-        while(index < 20){
-            let curentMonster = monsterController.GetMonser(index);
-            if((curentMonster.GetX() < x) & (x < curentMonster.GetX() + 32) & ~(monsterIsFound)){
-                let shootedMonster = curentMonster;
-                let indexOfMonster = index;
-                let monsterIsFound = true;
+        let shipIndexOfMonster = -1;
+        let shipMonsterIsFound = false;
+        while(shipIndex < 30){
+            let shipCurentMonster = shipMonsterController.GetMonser(shipIndex);
+            if(~(shipMonsterIsFound)){
+                if (shipCurentMonster.GetX() - 1 < shipX + 16){
+                    if (shipX + 14 < shipCurentMonster.GetX() + 33){
+                        let shootedMonster = shipCurentMonster;
+                        let shipIndexOfMonster = shipIndex;
+                        let shipMonsterIsFound = true;
+                    }
+                }
             }
 
-            let index = index + 1;
+            let shipIndex = shipIndex + 1;
         }
 
-        let bullet = Bullet.new(x + 15, shootedMonster);
-        do bullet.fly();
+        let shipBullet = Bullet.new(shipX + 15, shootedMonster);
+        do shipBullet.fly();
         
-        if (~(indexOfMonster = -1)){ do monsterController.DeleteMonster(indexOfMonster); }
+        if (~(shipIndexOfMonster = -1)){ 
+            do shipMonsterController.DeleteMonster(shipIndexOfMonster);
+            do shootedMonster.dispose();
+        }
         return;
     }
 }

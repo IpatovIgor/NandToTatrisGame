@@ -1,28 +1,33 @@
 class Bullet{
-    field Monster monster;
-    field int toY;
-    field int nowX, nowY;
+    field Monster bulletMonster;
+    field int bulletToY;
+    field int bulletNowX, bulletNowY;
 
     constructor Bullet new(int x, Monster monster1){
-        let nowX = x;
-        let monster = monster1;
-        let toY = monster.GetY() - 32;
-        let nowY = 200;
+        let bulletNowX = x;
+        let bulletMonster = monster1;
+        if (bulletMonster.GetY() = -1){
+            let bulletToY = 3;
+        }
+        else{
+            let bulletToY = bulletMonster.GetY() - 32;
+        }
+        let bulletNowY = 200;
         return this;
     }
 
     method void fly(){
-        while (nowY > toY){
+        while (bulletNowY > bulletToY){
             do Screen.setColor(true);
-            do Screen.drawRectangle(nowX, nowY - 3, nowX + 3, nowY);
+            do Screen.drawRectangle(bulletNowX, bulletNowY - 3, bulletNowX + 3, bulletNowY);
             do Sys.wait(1);
             do Screen.setColor(false);
-            do Screen.drawRectangle(nowX, nowY - 3, nowX + 3, nowY);
-            let nowY = nowY - 7;
+            do Screen.drawRectangle(bulletNowX, bulletNowY - 3, bulletNowX + 3, bulletNowY);
+            let bulletNowY = bulletNowY - 7;
         }
 
-        if(~(monster.GetY() = -1)){
-            do monster.dispose();
+        if(~(bulletMonster.GetY() = -1)){
+            do bulletMonster.dispose();
         }
 
         return;

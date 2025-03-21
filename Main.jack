@@ -1,8 +1,27 @@
 class Main {
     function void main () {
-        var FieldToGame game;
-        do game.run();
-        do game.dispose();
+        var Interface mainInterface;
+        var Ship mainShip;
+        var int mainDirection;
+        var char key;
+        var MonsterController mainMonsterController;
+        let mainInterface = Interface.new();
+        do mainInterface.drawStartString();
+        let mainDirection = 1;
+        let mainMonsterController = MonsterController.new();
+        let mainShip = Ship.new(0, 210, mainMonsterController);
+        while (true){
+            let key = Keyboard.keyPressed();
+            if (key = 130) { let mainDirection = 1; }   //left
+            if (key = 132) { let mainDirection = 2; }   //right
+            if (key = 32) { do mainShip.Shoot(); }
+            if (mainDirection = 1) { do mainShip.moveLeft(); }
+            if (mainDirection = 2) { do mainShip.moveRight(); }
+            do mainMonsterController.Update();
+            do Sys.wait(5);
+        }
+        //do mainGame.run(mainMonsterController);
+        //do mainGame.dispose();
         return;
     }
 }
