@@ -99,15 +99,18 @@ class Ship {
         var int index;
         var Monster curentMonster;
         var Monster shootedMonster;
+        var boolean monsterIsFound;
         var Bullet bullet;
         var int indexOfMonster;
         let shootedMonster = Monster.new(-1, -1);
         let indexOfMonster = -1;
+        let monsterIsFound = false;
         while(index < 20){
             let curentMonster = monsterController.GetMonser(index);
-            if((curentMonster.GetX() < x) & (x < curentMonster.GetX())){
+            if((curentMonster.GetX() < x) & (x < curentMonster.GetX() + 32) & ~(monsterIsFound)){
                 let shootedMonster = curentMonster;
                 let indexOfMonster = index;
+                let monsterIsFound = true;
             }
 
             let index = index + 1;

@@ -8,8 +8,8 @@ class FieldToGame {
     constructor FieldToGame new(){
         let direction = 0;
         let gameIsLost = false;
-        let interface = Interface.new(this);
-        let monsterController = MonsterController.new(interface);
+        let interface = Interface.new();
+        let monsterController = MonsterController.new(interface, this);
         return this;
     }
 
@@ -36,22 +36,24 @@ class FieldToGame {
         let ship = Ship.new(0, 210, monsterController);
 
         while (~exit){
-            while (key = 0) {
+            if (key = 0) {
                 let key = Keyboard.keyPressed();
                 do moveShip();
             }
 
-            if (key = 140 | gameIsLost) { let exit = true; }   //a key
+            if (key = 140) { let exit = true; }   //a key
             if (key = 130) { let direction = 1; }   //left
             if (key = 132) { let direction = 2; }   //right
             if (key = 32) { do ship.Shoot(); }
 
             do monsterController.Update();
 
-            while (~(key = 0)) {
+            if (~(key = 0)) {
                 let key = Keyboard.keyPressed();
                 do moveShip();
             }
+
+            if (gameIsLost) { let exit = true; }
         }
 
         return;

@@ -3,8 +3,10 @@ class Monster {
     constructor Monster new(int nowX, int nowY){
         let x = nowX;
         let y = nowY;
-        let size = 31;
-        do draw();
+        let size = 32;
+        if (nowY > -1){
+            do draw();
+        }
         return this;
     }
 
@@ -19,7 +21,7 @@ class Monster {
     method void dispose(){
         do Memory.deAlloc(this);
         do Screen.setColor(false);
-        do Screen.drawLine(x, y, x + size, y + size);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
