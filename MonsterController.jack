@@ -1,0 +1,91 @@
+class MonsterController{
+    field int index;
+    field Array monsterArray;
+    field Interface interface;
+    field FieldToGame fieldToGame;
+
+    constructor MonsterController new(Interface interface1){
+        var int i;
+        let i = 0;
+        let interface = interface1;
+        let monsterArray = Array.new(20);
+        while (i < 20){
+            let i = i + 1;
+            let monsterArray[i] = -1;
+        }
+
+        let index = 0;
+        return this;
+    }
+
+    method void Update(){
+        var Monster monster;
+        var int index;
+        var boolean makeLine;
+        let makeLine = true;
+        let index = 0;
+        while (index < 20){
+            if (~(monsterArray[index] = -1)){
+                let monster = monsterArray[index];
+                if (monster.GetY() < 40){
+                    let makeLine = false;
+                }
+            }
+
+            let index = index + 1;
+        }
+
+        if (makeLine){
+            do MakeMonstersLine();
+        }
+
+        do MoveDown();
+        return;
+    }
+
+    method void MakeMonstersLine(){
+        var Monster monster;
+        var int x, spaceSize;
+        let x = 13;
+        let spaceSize = 3;
+        while (x < 479){
+            let monster = Monster.new(x, 0);
+            let x = x + 32 + spaceSize;
+            let monsterArray[index] = monster;
+            let index = index + 1;
+        }
+
+        return;
+    }
+
+    method void DeleteMonster(int ind){
+        let monsterArray[ind] = -1;
+        return;
+    }
+
+    method Monster GetMonser(int ind){
+        return monsterArray[ind];
+    }
+
+
+    method void MoveDown(){
+        var Monster monster;
+        var int i;
+        let i = 0;
+        while (i < 20){
+            if (~(monsterArray[i] = -1)){
+                let monster = monsterArray[i];
+                if (monster.GetY() > 223){
+                    do interface.drawLostString();
+                }
+                else{
+                    do monster.MoveDownMonster();
+                }
+            }
+
+            let i = i + 1;
+        }
+        
+        return;
+    }
+}

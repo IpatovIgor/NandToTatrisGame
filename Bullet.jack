@@ -1,10 +1,12 @@
 class Bullet{
+    field Monster monster;
     field int toY;
     field int nowX, nowY;
 
-    constructor Bullet new(int x, int y){
+    constructor Bullet new(int x, Monster monster1){
         let nowX = x;
-        let toY = y;
+        let monster = monster1;
+        let toY = monster.GetY() - 32;
         let nowY = 200;
         return this;
     }
@@ -12,11 +14,15 @@ class Bullet{
     method void fly(){
         while (nowY > toY){
             do Screen.setColor(true);
-            do Screen.drawRectangle(nowX, nowY, nowX + 3, nowY - 3);
-            do Sys.wait(10);
+            do Screen.drawRectangle(nowX, nowY - 3, nowX + 3, nowY);
+            do Sys.wait(1);
             do Screen.setColor(false);
-            do Screen.drawRectangle(nowX, nowY, nowX + 3, nowY - 3);
+            do Screen.drawRectangle(nowX, nowY - 3, nowX + 3, nowY);
             let nowY = nowY - 7;
+        }
+
+        if(~(monster.GetY() = -1)){
+            do monster.dispose();
         }
 
         return;

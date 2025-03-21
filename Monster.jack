@@ -1,2 +1,90 @@
 class Monster {
+    field int x, y, size;
+    constructor Monster new(int nowX, int nowY){
+        let x = nowX;
+        let y = nowY;
+        let size = 31;
+        do draw();
+        return this;
+    }
+
+    method int GetY(){
+        return y;
+    }
+
+    method int GetX(){
+        return x;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        do Screen.setColor(false);
+        do Screen.drawLine(x, y, x + size, y + size);
+        return;
+    }
+
+    method void draw() {
+        var int row;
+        do Screen.setColor(true);
+
+        // Рога
+        do Screen.drawLine(x + 4, y, x + 6, y);
+        do Screen.drawLine(x + 25, y, x + 27, y);
+        do Screen.drawPixel(x + 3, y + 1);
+        do Screen.drawPixel(x + 28, y + 1);
+
+        // Верх головы
+        do Screen.drawLine(x + 6, y + 2, x + 25, y + 2);
+        do Screen.drawLine(x + 5, y + 3, x + 26, y + 3);
+        do Screen.drawLine(x + 4, y + 4, x + 27, y + 4);
+        do Screen.drawLine(x + 4, y + 5, x + 27, y + 5);
+
+        // Глаза
+        do Screen.drawPixel(x + 10, y + 8);
+        do Screen.drawPixel(x + 11, y + 8);
+        do Screen.drawPixel(x + 20, y + 8);
+        do Screen.drawPixel(x + 21, y + 8);
+
+        // Тело
+        let row = 6;
+        while (row < 28) {
+            do Screen.drawLine(x + 4, y + row, x + 27, y + row);
+            let row = row + 1;
+        }
+
+        // Рот (темная линия)
+        do Screen.setColor(false);
+        do Screen.drawLine(x + 8, y + 18, x + 23, y + 18);
+        do Screen.drawLine(x + 9, y + 19, x + 22, y + 19);
+
+        // Зубы
+        do Screen.setColor(true);
+        do Screen.drawPixel(x + 10, y + 20);
+        do Screen.drawPixel(x + 12, y + 20);
+        do Screen.drawPixel(x + 20, y + 20);
+        do Screen.drawPixel(x + 22, y + 20);
+
+        // Лапы
+        do Screen.drawRectangle(x + 4, y + 28, x + 8, y + 31);
+        do Screen.drawRectangle(x + 23, y + 28, x + 27, y + 31);
+
+        // Украшения (пятна)
+        do Screen.drawPixel(x + 14, y + 10);
+        do Screen.drawPixel(x + 17, y + 12);
+        do Screen.drawPixel(x + 12, y + 15);
+        do Screen.drawPixel(x + 20, y + 14);
+        do Screen.drawPixel(x + 16, y + 22);
+        do Screen.drawPixel(x + 13, y + 25);
+
+        return;
+    }
+
+    method void MoveDownMonster(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x + size, y + size);
+        do draw();
+        let y = y + 1;
+
+        return;
+    }
 }

@@ -1,9 +1,11 @@
 class Ship {
     field int x, y;
+    field MonsterController monsterController;
 
-    constructor Ship new(int Ax, int Ay) {
+    constructor Ship new(int Ax, int Ay, MonsterController monsterController1) {
         let x = Ax;
         let y = Ay;
+        let monsterController = monsterController1;
         do draw();
         return this;
     }
@@ -65,12 +67,12 @@ class Ship {
 
     method void erase() {
         do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + 15, y + 15);
+        do Screen.drawRectangle(x, y, x + 31, y + 31);
         return;
     }
 
     method void moveLeft() {
-        if (x > 1) {
+        if (x > 0) {
             do erase();
             let x = x - 2;
             do draw();
@@ -79,7 +81,7 @@ class Ship {
     }
 
     method void moveRight() {
-        if (x < 495) {
+        if (x < 479) {
             do erase();
             let x = x + 2;
             do draw();
@@ -95,27 +97,26 @@ class Ship {
 
     method void Shoot(){
         var int index;
-        //var Monster monstr;
-        var boolean shootingToMonstr;
+        var Monster curentMonster;
+        var Monster shootedMonster;
         var Bullet bullet;
-        let shootingToMonstr = false;
-        //while(index < 100){
-        //    if(monstrArray[index].GetX() < x & x < monstrArray[index].GetX()){
-        //        let monstr = monstr[index];
-        //        let shootingToMonstr = true;
-        //    }
+        var int indexOfMonster;
+        let shootedMonster = Monster.new(-1, -1);
+        let indexOfMonster = -1;
+        while(index < 20){
+            let curentMonster = monsterController.GetMonser(index);
+            if((curentMonster.GetX() < x) & (x < curentMonster.GetX())){
+                let shootedMonster = curentMonster;
+                let indexOfMonster = index;
+            }
 
-         //   let index = index + 1;
-        //}
-
-        if (shootingToMonstr){
-            //let bullet = Bullet.new(x, monstr.GetY());
-        }
-        else{
-            let bullet = Bullet.new(x, 0);
-            do bullet.fly();
+            let index = index + 1;
         }
 
+        let bullet = Bullet.new(x + 15, shootedMonster);
+        do bullet.fly();
+        
+        if (~(indexOfMonster = -1)){ do monsterController.DeleteMonster(indexOfMonster); }
         return;
     }
 }

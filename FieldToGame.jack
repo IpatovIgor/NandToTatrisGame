@@ -1,12 +1,21 @@
 class FieldToGame {
+    field boolean gameIsLost; 
     field Ship ship;
     field int direction;
+    field MonsterController monsterController;
     field Interface interface;
 
     constructor FieldToGame new(){
         let direction = 0;
-        let interface = Interface.new();
+        let gameIsLost = false;
+        let interface = Interface.new(this);
+        let monsterController = MonsterController.new(interface);
         return this;
+    }
+
+    method void LostGame(){
+        let gameIsLost = true;
+        return;
     }
 
     method void moveShip(){
@@ -24,25 +33,27 @@ class FieldToGame {
 
         do interface.drawStartString();
 
-        let ship = Ship.new(0, 210);
+        let ship = Ship.new(0, 210, monsterController);
 
         while (~exit){
-
             while (key = 0) {
                 let key = Keyboard.keyPressed();
                 do moveShip();
             }
 
-            if (key = 140) { let exit = true; }   //a key
+            if (key = 140 | gameIsLost) { let exit = true; }   //a key
             if (key = 130) { let direction = 1; }   //left
             if (key = 132) { let direction = 2; }   //right
             if (key = 32) { do ship.Shoot(); }
+
+            do monsterController.Update();
 
             while (~(key = 0)) {
                 let key = Keyboard.keyPressed();
                 do moveShip();
             }
         }
+
         return;
     }
 

@@ -1,9 +1,23 @@
 class Interface{
     field String startMessage;
+    field FieldToGame fieldToGame;
+    field String looseMessage;
 
-    constructor Interface new(){
+    constructor Interface new(FieldToGame game){
+        let fieldToGame = game;
         let startMessage = "Press Enter to start";
+        let looseMessage = "You Lost";
         return this;
+    }
+
+    method void drawLostString(){
+        do fieldToGame.LostGame();
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        do Output.moveCursor(12, 20);
+        do Output.printString(startMessage);
+        do Sys.wait(1000);
+        return;
     }
 
     method void drawStartString(){

@@ -1,9 +1,14 @@
 class Main {
     function void main () {
         var FieldToGame game;
+        var Interface interface;
+        var MonsterController monsterController;
         let game = FieldToGame.new();
-        do game.run();
-        do game.dispose();
+        let interface = Interface.new(game);
+        let monsterController = MonsterController.new(interface);
+        do monsterController.MakeMonstersLine();
+        //do game.run();
+        //do game.dispose();
         return;
     }
 }
