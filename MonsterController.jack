@@ -51,7 +51,7 @@ class MonsterController{
         let spaceSize = 3;
         while (x < 479){
             if (controllerIndex < constrollerMonsterCount){
-                let monster = Monster.new(x, 0);
+                let monster = Monster.new(x, 1);
                 let x = x + 32 + spaceSize;
                 let monsterArray[controllerIndex] = monster;
                 let controllerIndex = controllerIndex + 1;

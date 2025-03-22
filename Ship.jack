@@ -72,7 +72,7 @@ class Ship {
     }
 
     method void moveLeft() {
-        if (shipX > 6) {
+        if (shipX > 18) {
             do erase();
             let shipX = shipX - 6;
             do draw();
@@ -81,7 +81,7 @@ class Ship {
     }
 
     method void moveRight() {
-        if (shipX < 475) {
+        if (shipX < 465) {
             do erase();
             let shipX = shipX + 6;
             do draw();
@@ -107,14 +107,14 @@ class Ship {
         var int shipBulletXRigth;
         let shipIndex = 0;
         let shootedMonster = Monster.new(-1, -1);
-        let shipIndexOfMonster = -1;
+        let shipIndexOfMonster = 999;
         while(shipIndex < 30){
             let shipCurentMonster = shipMonsterController.GetMonser(shipIndex);
             let shipMonsterXLeft = shipCurentMonster.GetX() - 1;
             let shipMonsterXRigth = shipCurentMonster.GetX() + 33;
             let shipBulletXLeft = shipX + 14;
             let shipBulletXRigth = shipX + 16;
-            if(shipIndexOfMonster = -1){
+            if(shipIndexOfMonster = 999){
                 if (shipMonsterXLeft < shipBulletXRigth){
                     if (shipBulletXLeft < shipMonsterXRigth){
                         let shootedMonster = shipCurentMonster;
@@ -129,7 +129,7 @@ class Ship {
         let shipBullet = Bullet.new(shipX + 15, shootedMonster);
         do shipBullet.fly();
         
-        if (~(shipIndexOfMonster = -1)){
+        if (~(shipIndexOfMonster = 999)){
             do shipMonsterController.DeleteMonster(shipIndexOfMonster);
         }
 

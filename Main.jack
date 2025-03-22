@@ -9,7 +9,7 @@ class Main {
         do mainInterface.drawStartString();
         let mainDirection = 1;
         let mainMonsterController = MonsterController.new();
-        let mainShip = Ship.new(0, 210, mainMonsterController);
+        let mainShip = Ship.new(120, 210, mainMonsterController);
         while (true){
             let key = Keyboard.keyPressed();
             if (key = 130) { let mainDirection = 1; }   //left
