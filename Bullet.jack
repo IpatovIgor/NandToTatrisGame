@@ -7,10 +7,13 @@ class Bullet{
         let bulletNowX = x;
         let bulletMonster = monster1;
         if (bulletMonster.GetY() = -1){
-            let bulletToY = 3;
+            do Output.printInt(bulletToY);
+            do Output.moveCursor(12, 15);
+            do Sys.wait(10000);
+            let bulletToY = 4;
         }
         else{
-            let bulletToY = bulletMonster.GetY() - 32;
+            let bulletToY = bulletMonster.GetY() + 32;
         }
         let bulletNowY = 200;
         return this;
@@ -30,6 +33,7 @@ class Bullet{
             do bulletMonster.dispose();
         }
 
+        do Memory.deAlloc(this);
         return;
     }
 }

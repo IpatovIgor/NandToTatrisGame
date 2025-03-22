@@ -84,7 +84,7 @@ class MonsterController{
             if (~(gameIsLost)){
                 if (~(monsterArray[i] = -1)){
                     let monster = monsterArray[i];
-                    if (monster.GetY() > 223){
+                    if (monster.GetY() > 182){
                         do constrollerInterface.drawLostString();
                         let gameIsLost = true;
                     }

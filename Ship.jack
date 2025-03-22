@@ -72,18 +72,18 @@ class Ship {
     }
 
     method void moveLeft() {
-        if (shipX > 0) {
+        if (shipX > 6) {
             do erase();
-            let shipX = shipX - 2;
+            let shipX = shipX - 6;
             do draw();
         }
         return;
     }
 
     method void moveRight() {
-        if (shipX < 479) {
+        if (shipX < 475) {
             do erase();
-            let shipX = shipX + 2;
+            let shipX = shipX + 6;
             do draw();
         }
         return;
@@ -99,21 +99,26 @@ class Ship {
         var int shipIndex;
         var Monster shipCurentMonster;
         var Monster shootedMonster;
-        var boolean shipMonsterIsFound;
         var Bullet shipBullet;
+        var int shipMonsterXLeft;
+        var int shipMonsterXRigth;
         var int shipIndexOfMonster;
+        var int shipBulletXLeft;
+        var int shipBulletXRigth;
         let shipIndex = 0;
         let shootedMonster = Monster.new(-1, -1);
         let shipIndexOfMonster = -1;
-        let shipMonsterIsFound = false;
         while(shipIndex < 30){
             let shipCurentMonster = shipMonsterController.GetMonser(shipIndex);
-            if(~(shipMonsterIsFound)){
-                if (shipCurentMonster.GetX() - 1 < shipX + 16){
-                    if (shipX + 14 < shipCurentMonster.GetX() + 33){
+            let shipMonsterXLeft = shipCurentMonster.GetX() - 1;
+            let shipMonsterXRigth = shipCurentMonster.GetX() + 33;
+            let shipBulletXLeft = shipX + 14;
+            let shipBulletXRigth = shipX + 16;
+            if(shipIndexOfMonster = -1){
+                if (shipMonsterXLeft < shipBulletXRigth){
+                    if (shipBulletXLeft < shipMonsterXRigth){
                         let shootedMonster = shipCurentMonster;
                         let shipIndexOfMonster = shipIndex;
-                        let shipMonsterIsFound = true;
                     }
                 }
             }
@@ -124,10 +129,10 @@ class Ship {
         let shipBullet = Bullet.new(shipX + 15, shootedMonster);
         do shipBullet.fly();
         
-        if (~(shipIndexOfMonster = -1)){ 
+        if (~(shipIndexOfMonster = -1)){
             do shipMonsterController.DeleteMonster(shipIndexOfMonster);
-            do shootedMonster.dispose();
         }
+
         return;
     }
 }
