@@ -1,15 +1,16 @@
 class Main {
-    function void main () {
-        var Interface mainInterface;
+    method void Level1(){
         var Ship mainShip;
         var int mainDirection;
         var char key;
+        var GameCounter counter;
         var MonsterController mainMonsterController;
-        let mainInterface = Interface.new();
-        do mainInterface.drawStartString();
+
+        let counter= GameCounter.new();
         let mainDirection = 1;
-        let mainMonsterController = MonsterController.new();
-        let mainShip = Ship.new(120, 210, mainMonsterController);
+        let mainMonsterController = MonsterController.new(5);
+        let mainShip = Ship.new(120, 210, mainMonsterController, counter);
+
         while (true){
             let key = Keyboard.keyPressed();
             if (key = 130) { let mainDirection = 1; }   //left
@@ -18,10 +19,18 @@ class Main {
             if (mainDirection = 1) { do mainShip.moveLeft(); }
             if (mainDirection = 2) { do mainShip.moveRight(); }
             do mainMonsterController.Update();
+            do counter.DrawScore();
             do Sys.wait(5);
         }
-        //do mainGame.run(mainMonsterController);
-        //do mainGame.dispose();
+
+        return;
+    }
+
+    function void main () {
+        var Interface mainInterface;
+        let mainInterface = Interface.new();
+        do mainInterface.drawStartString();
+        do Level1();
         return;
     }
 }

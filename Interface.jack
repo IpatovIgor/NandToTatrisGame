@@ -1,7 +1,7 @@
 class Interface{
     field String startMessage;
     field String looseMessage;
-
+    
     constructor Interface new(){
         let startMessage = "Press Enter to start";
         let looseMessage = "You Lost";

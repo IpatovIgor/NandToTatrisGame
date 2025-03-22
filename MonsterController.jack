@@ -4,10 +4,10 @@ class MonsterController{
     field Interface constrollerInterface;
     field int constrollerMonsterCount;
 
-    constructor MonsterController new(){
+    constructor MonsterController new(int monsterCount){
         var int i;
         let i = 0;
-        let constrollerMonsterCount = 30;
+        let constrollerMonsterCount = monsterCount;
         let constrollerInterface = Interface.new();
         let monsterArray = Array.new(constrollerMonsterCount);
         while (i < constrollerMonsterCount){

@@ -1,9 +1,11 @@
 class Ship {
     field int shipX, shipY;
     field MonsterController shipMonsterController;
+    field  GameCounter gameCounter;
 
-    constructor Ship new(int Ax, int Ay, MonsterController monsterController1) {
+    constructor Ship new(int Ax, int Ay, MonsterController monsterController1, GameCounter gameCount) {
         let shipX = Ax;
+        let gameCounter = gameCount;
         let shipY = Ay;
         let shipMonsterController = monsterController1;
         do draw();
@@ -131,6 +133,7 @@ class Ship {
         
         if (~(shipIndexOfMonster = 999)){
             do shipMonsterController.DeleteMonster(shipIndexOfMonster);
+            do gameCounter.IncreaseScore();
         }
 
         return;

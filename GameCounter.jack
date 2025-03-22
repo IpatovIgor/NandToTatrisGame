@@ -1,3 +1,43 @@
 class GameCounter {
+    field int score;
 
+    constructor GameCounter new() {
+        let score = 0;
+        return this;
+    }
+
+    method void IncreaseScore() {
+        let score = score + 50;
+        return;
+    }
+
+    method void GetScore() {
+        return score;
+    }
+
+    // method void ResetScore() {
+    //     let score = 0;
+    //     return;
+    // }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void DrawScore() {
+        var int x, y;
+
+        let x = 450;
+        let y = 230;
+
+        do Output.moveCursor(22, 30);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x,y,x + 40, y + 10);
+
+        do Screen.setColor(true);
+        do Output.printInt(score);
+
+        return;
+    }
 }
