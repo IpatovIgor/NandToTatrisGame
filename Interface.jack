@@ -1,22 +1,61 @@
 class Interface{
     field String startMessage;
     field String looseMessage;
-    
+    field String firstLevel;
+    field String secondLevel;
+    field String thirdLevel;
     constructor Interface new(){
         let startMessage = "Press Enter to start";
-        let looseMessage = "You Lost";
+        let looseMessage = "Игорь пивное пузо";
+        let firstLevel = "First Level";
+        
+        let secondLevel = "Second Level";
+        let thirdLevel = "Third Level";
         return this;
+    }
+
+    method void drawFirstLevel(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        do Output.moveCursor(12, 26);
+        do Output.printString(firstLevel);
+        do Sys.wait(1000);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        return;
+    }
+
+    method void drawSecondLevel(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        do Output.moveCursor(12, 26);
+        do Output.printString(secondLevel);
+        do Sys.wait(1000);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        return;
+    }
+
+    method void drawThirdLevel(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        do Output.moveCursor(12, 26);
+        do Output.printString(thirdLevel);
+        do Sys.wait(1000);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        return;
     }
 
     method void drawLostString(){
         do Screen.setColor(false);
         do Screen.drawRectangle(0, 0, 511, 255);
-        do Output.moveCursor(12, 20);
+        do Output.moveCursor(12, 26);
         do Output.printString(looseMessage);
         do Sys.wait(1000);
         return;
     }
-
+    
     method void drawStartString(){
         var char key;
         var boolean entrPressed;

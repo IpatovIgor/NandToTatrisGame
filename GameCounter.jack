@@ -1,14 +1,22 @@
 class GameCounter {
     field int score;
+    field int monsterCount;
 
     constructor GameCounter new() {
         let score = 0;
+        let monsterCount = 0;
         return this;
     }
+
 
     method void IncreaseScore() {
         let score = score + 50;
         return;
+    }
+
+    method int MonsterCounter(){
+        let monsterCount = score / 50;
+        return monsterCount;
     }
 
     method void GetScore() {
@@ -37,7 +45,7 @@ class GameCounter {
 
         do Screen.setColor(true);
         do Output.printInt(score);
-
+        
         return;
     }
 }

@@ -29,7 +29,7 @@ class Bullet{
         if(~(bulletMonster.GetY() = -1)){
             do bulletMonster.dispose();
         }
-
+        
         do Memory.deAlloc(this);
         return;
     }

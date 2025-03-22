@@ -20,7 +20,7 @@ class Monster {
 
     method void dispose(){
         do Screen.setColor(false);
-        do Screen.drawRectangle(monsterX, monsterY, monsterX + monsterSize, monsterY + monsterSize);
+        do Screen.drawRectangle(monsterX, monsterY - 1, monsterX + monsterSize, monsterY + monsterSize);
         do Memory.deAlloc(this);
         return;
     }
