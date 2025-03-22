@@ -1,12 +1,14 @@
 class Interface{
     field String startMessage;
-    field String looseMessage;
+    field String winMessage;
+    field String loseMessage;
     field String firstLevel;
     field String secondLevel;
     field String thirdLevel;
     constructor Interface new(){
         let startMessage = "Press Enter to start";
-        let looseMessage = "Игорь пивное пузо";
+        let winMessage = "You won!";
+        let loseMessage = "Pososi Olux";
         let firstLevel = "First Level";
         
         let secondLevel = "Second Level";
@@ -14,10 +16,20 @@ class Interface{
         return this;
     }
 
+    method void PrintScore(GameCounter counter){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        do Output.moveCursor(10, 29);
+        do Output.printString(winMessage);
+        do Output.moveCursor(12, 30);
+        do Output.printInt(counter.GetScore());
+        return;
+    }
+
     method void drawFirstLevel(){
         do Screen.setColor(false);
         do Screen.drawRectangle(0, 0, 511, 255);
-        do Output.moveCursor(12, 26);
+        do Output.moveCursor(12, 28);
         do Output.printString(firstLevel);
         do Sys.wait(1000);
         do Screen.setColor(false);
@@ -51,7 +63,7 @@ class Interface{
         do Screen.setColor(false);
         do Screen.drawRectangle(0, 0, 511, 255);
         do Output.moveCursor(12, 26);
-        do Output.printString(looseMessage);
+        do Output.printString(loseMessage);
         do Sys.wait(1000);
         return;
     }

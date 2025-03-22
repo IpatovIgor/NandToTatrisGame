@@ -22,7 +22,7 @@ class Main {
             do counter.DrawScore();
             do Sys.wait(10);
             let monstersKilled = counter.MonsterCounter();
-            if (monstersKilled = 30){ let levelEnds = true; }
+            if (monstersKilled = 5){ let levelEnds = true; }
         }
 
         return;
@@ -100,6 +100,9 @@ class Main {
 
         do mainInterface.drawThirdLevel();
         do Level3(counter);
+
+        
+        do mainInterface.PrintScore(counter);
 
         return;
     }
