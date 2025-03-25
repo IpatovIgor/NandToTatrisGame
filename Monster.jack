@@ -81,11 +81,11 @@ class Monster {
         return;
     }
 
-    method void MoveDownMonster(){
+    method void MoveDownMonster(int speed2){
         do Screen.setColor(false);
-        do Screen.drawRectangle(monsterX, monsterY - 1, monsterX + monsterSize, monsterY + monsterSize);
+        do Screen.drawRectangle(monsterX, monsterY - speed2, monsterX + monsterSize, monsterY + monsterSize);
         do draw();
-        let monsterY = monsterY + 1;
+        let monsterY = monsterY + speed2;
 
         return;
     }

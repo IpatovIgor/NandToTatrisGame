@@ -8,7 +8,7 @@ class Main {
         var boolean levelEnds;
         let levelEnds = false;
         let mainDirection = 1;
-        let mainMonsterController = MonsterController.new(5);
+        let mainMonsterController = MonsterController.new(10);
         let mainShip = Ship.new(120, 210, mainMonsterController, counter);
 
         while (~(levelEnds)){
@@ -18,46 +18,17 @@ class Main {
             if (key = 32) { do mainShip.Shoot(); }
             if (mainDirection = 1) { do mainShip.moveLeft(); }
             if (mainDirection = 2) { do mainShip.moveRight(); }
-            do mainMonsterController.Update();
+            do mainMonsterController.Update(60, 7, 1);
             do counter.DrawScore();
             do Sys.wait(10);
             let monstersKilled = counter.MonsterCounter();
-            if (monstersKilled = 5){ let levelEnds = true; }
+            if (monstersKilled = 10){ let levelEnds = true; }
         }
 
         return;
     }
 
     method void Level2(GameCounter counter){
-        var Ship mainShip;
-        var int mainDirection;
-        var char key;
-        var MonsterController mainMonsterController;
-        var int monstersKilled;
-        var boolean levelEnds;
-        let levelEnds = false;
-        let mainDirection = 1;
-        let mainMonsterController = MonsterController.new(12);
-        let mainShip = Ship.new(120, 210, mainMonsterController, counter);
-
-        while (~(levelEnds)){
-            let key = Keyboard.keyPressed();
-            if (key = 130) { let mainDirection = 1; }   //left
-            if (key = 132) { let mainDirection = 2; }   //right
-            if (key = 32) { do mainShip.Shoot(); }
-            if (mainDirection = 1) { do mainShip.moveLeft(); }
-            if (mainDirection = 2) { do mainShip.moveRight(); }
-            do mainMonsterController.Update();
-            do counter.DrawScore();
-            do Sys.wait(10);
-            let monstersKilled = counter.MonsterCounter();
-            if (monstersKilled = 17){ let levelEnds = true; }
-        }
-
-        return;
-    }
-
-    method void Level3(GameCounter counter){
         var Ship mainShip;
         var int mainDirection;
         var char key;
@@ -76,11 +47,40 @@ class Main {
             if (key = 32) { do mainShip.Shoot(); }
             if (mainDirection = 1) { do mainShip.moveLeft(); }
             if (mainDirection = 2) { do mainShip.moveRight(); }
-            do mainMonsterController.Update();
+            do mainMonsterController.Update(55, 10, 2);
             do counter.DrawScore();
             do Sys.wait(10);
             let monstersKilled = counter.MonsterCounter();
-            if (monstersKilled = 47){ let levelEnds = true; }
+            if (monstersKilled = 30){ let levelEnds = true; }
+        }
+
+        return;
+    }
+
+    method void Level3(GameCounter counter){
+        var Ship mainShip;
+        var int mainDirection;
+        var char key;
+        var MonsterController mainMonsterController;
+        var int monstersKilled;
+        var boolean levelEnds;
+        let levelEnds = false;
+        let mainDirection = 1;
+        let mainMonsterController = MonsterController.new(65);
+        let mainShip = Ship.new(120, 210, mainMonsterController, counter);
+
+        while (~(levelEnds)){
+            let key = Keyboard.keyPressed();
+            if (key = 130) { let mainDirection = 1; }   //left
+            if (key = 132) { let mainDirection = 2; }   //right
+            if (key = 32) { do mainShip.Shoot(); }
+            if (mainDirection = 1) { do mainShip.moveLeft(); }
+            if (mainDirection = 2) { do mainShip.moveRight(); }
+            do mainMonsterController.Update(40, 15, 3);
+            do counter.DrawScore();
+            do Sys.wait(10);
+            let monstersKilled = counter.MonsterCounter();
+            if (monstersKilled = 65){ let levelEnds = true; }
         }
 
         return;

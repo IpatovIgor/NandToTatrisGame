@@ -15,12 +15,12 @@ class MonsterController{
             let i = i + 1;
             let monsterArray[i] = -1;
         }
-        let spaceSize = 33;
+        let spaceSize = 103;
         let controllerIndex = 0;
         return this;
     }
 
-    method void Update(){
+    method void Update(int betweenLine, int spSize, int speed){
         var Monster monster;
         var int i;
         var boolean makeLine;
@@ -29,7 +29,7 @@ class MonsterController{
         while (i < constrollerMonsterCount){
             if (~(monsterArray[i] = -1)){
                 let monster = monsterArray[i];
-                if (monster.GetY() < 40){
+                if (monster.GetY() < betweenLine){
                     let makeLine = false;
                 }
             }
@@ -38,20 +38,20 @@ class MonsterController{
 
         if (makeLine){
             do MakeMonstersLine();
-            let spaceSize = spaceSize - 10;
+            let spaceSize = spaceSize - spSize;
         }
 
-        do MoveDown();
+        do MoveDown(speed);
         return;
     }
 //Jack говно?
     method void MakeMonstersLine(){
         var Monster monster;
         var int x;
-        let x = 13;
-        while (x < 479){
+        let x = 13 + spaceSize;
+        while (x < 465){
             if (controllerIndex < constrollerMonsterCount){
-                let monster = Monster.new(x, 1);
+                let monster = Monster.new(x, 3);
                 let x = x + 32 + spaceSize;
                 let monsterArray[controllerIndex] = monster;
                 let controllerIndex = controllerIndex + 1;
@@ -74,7 +74,7 @@ class MonsterController{
     }
 
 
-    method void MoveDown(){
+    method void MoveDown(int speed1){
         var Monster monster;
         var int i;
         var boolean gameIsLost;
@@ -89,7 +89,7 @@ class MonsterController{
                         let gameIsLost = true;
                     }
                     else{
-                        do monster.MoveDownMonster();
+                        do monster.MoveDownMonster(speed1);
                     }
                 }
             }
