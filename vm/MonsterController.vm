@@ -1,0 +1,253 @@
+function MonsterController.new 1
+    push constant 5
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 0
+    pop local 0
+    push argument 0
+    pop this 3
+    call Interface.new 0
+    pop this 2
+    push this 3
+    call Array.new 1
+    pop this 1
+label MonsterController_0
+    push local 0
+    push this 3
+    lt
+    not
+    if-goto MonsterController_1
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    push local 0
+    push this 1
+    add
+    push constant 1
+    neg
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto MonsterController_0
+label MonsterController_1
+    push constant 103
+    pop this 4
+    push constant 0
+    pop this 0
+    push pointer 0
+    return
+function MonsterController.Update 3
+    push argument 0
+    pop pointer 0
+    push constant 1
+    neg
+    pop local 2
+    push constant 0
+    pop local 1
+label MonsterController_2
+    push local 1
+    push this 3
+    lt
+    not
+    if-goto MonsterController_3
+    push local 1
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    push constant 1
+    neg
+    eq
+    not
+    not
+    if-goto MonsterController_5
+    push local 1
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    pop local 0
+    push local 0
+    call Monster.GetY 1
+    push argument 1
+    lt
+    not
+    if-goto MonsterController_7
+    push constant 0
+    pop local 2
+    goto MonsterController_6
+label MonsterController_7
+label MonsterController_6
+    goto MonsterController_4
+label MonsterController_5
+label MonsterController_4
+    push local 1
+    push constant 1
+    add
+    pop local 1
+    goto MonsterController_2
+label MonsterController_3
+    push local 2
+    not
+    if-goto MonsterController_9
+    push pointer 0
+    call MonsterController.MakeMonstersLine 1
+    pop temp 0
+    push this 4
+    push argument 2
+    sub
+    pop this 4
+    goto MonsterController_8
+label MonsterController_9
+label MonsterController_8
+    push pointer 0
+    push argument 3
+    call MonsterController.MoveDown 2
+    pop temp 0
+    push constant 0
+    return
+function MonsterController.MakeMonstersLine 2
+    push argument 0
+    pop pointer 0
+    push constant 13
+    push this 4
+    add
+    pop local 1
+label MonsterController_10
+    push local 1
+    push constant 465
+    lt
+    not
+    if-goto MonsterController_11
+    push this 0
+    push this 3
+    lt
+    not
+    if-goto MonsterController_13
+    push local 1
+    push constant 3
+    call Monster.new 2
+    pop local 0
+    push local 1
+    push constant 32
+    add
+    push this 4
+    add
+    pop local 1
+    push this 0
+    push this 1
+    add
+    push local 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push this 0
+    push constant 1
+    add
+    pop this 0
+    goto MonsterController_12
+label MonsterController_13
+    push local 1
+    push constant 32
+    add
+    push this 4
+    add
+    pop local 1
+label MonsterController_12
+    goto MonsterController_10
+label MonsterController_11
+    push constant 0
+    return
+function MonsterController.DeleteMonster 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    push this 1
+    add
+    push constant 1
+    neg
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 0
+    return
+function MonsterController.GetMonser 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    return
+function MonsterController.MoveDown 3
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 1
+    push constant 0
+    pop local 2
+label MonsterController_14
+    push local 1
+    push this 3
+    lt
+    not
+    if-goto MonsterController_15
+    push local 2
+    not
+    not
+    if-goto MonsterController_17
+    push local 1
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    push constant 1
+    neg
+    eq
+    not
+    not
+    if-goto MonsterController_19
+    push local 1
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    pop local 0
+    push local 0
+    call Monster.GetY 1
+    push constant 182
+    gt
+    not
+    if-goto MonsterController_21
+    push this 2
+    call Interface.drawLostString 1
+    pop temp 0
+    push constant 1
+    neg
+    pop local 2
+    goto MonsterController_20
+label MonsterController_21
+    push local 0
+    push argument 1
+    call Monster.MoveDownMonster 2
+    pop temp 0
+label MonsterController_20
+    goto MonsterController_18
+label MonsterController_19
+label MonsterController_18
+    goto MonsterController_16
+label MonsterController_17
+label MonsterController_16
+    push local 1
+    push constant 1
+    add
+    pop local 1
+    goto MonsterController_14
+label MonsterController_15
+    push constant 0
+    return

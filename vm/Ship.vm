@@ -1,0 +1,725 @@
+function Ship.new 0
+    push constant 4
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push argument 3
+    pop this 3
+    push argument 1
+    pop this 1
+    push argument 2
+    pop this 2
+    push pointer 0
+    call Ship.draw 1
+    pop temp 0
+    push pointer 0
+    return
+function Ship.draw 0
+    push argument 0
+    pop pointer 0
+    push constant 1
+    neg
+    call Screen.setColor 1
+    pop temp 0
+    push this 0
+    push constant 12
+    add
+    push this 1
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 13
+    add
+    push this 1
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 18
+    add
+    push this 1
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 19
+    add
+    push this 1
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 12
+    add
+    push this 1
+    push constant 1
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 13
+    add
+    push this 1
+    push constant 1
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 18
+    add
+    push this 1
+    push constant 1
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 19
+    add
+    push this 1
+    push constant 1
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 10
+    add
+    push this 1
+    push constant 2
+    add
+    push this 0
+    push constant 21
+    add
+    push this 1
+    push constant 2
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 10
+    add
+    push this 1
+    push constant 3
+    add
+    push this 0
+    push constant 21
+    add
+    push this 1
+    push constant 3
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 4
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 5
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 5
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 6
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 6
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 7
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 7
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 6
+    add
+    push this 1
+    push constant 8
+    add
+    push this 0
+    push constant 25
+    add
+    push this 1
+    push constant 8
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 6
+    add
+    push this 1
+    push constant 9
+    add
+    push this 0
+    push constant 25
+    add
+    push this 1
+    push constant 9
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 4
+    add
+    push this 1
+    push constant 10
+    add
+    push this 0
+    push constant 27
+    add
+    push this 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 4
+    add
+    push this 1
+    push constant 11
+    add
+    push this 0
+    push constant 27
+    add
+    push this 1
+    push constant 11
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 2
+    add
+    push this 1
+    push constant 12
+    add
+    push this 0
+    push constant 29
+    add
+    push this 1
+    push constant 12
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 2
+    add
+    push this 1
+    push constant 13
+    add
+    push this 0
+    push constant 29
+    add
+    push this 1
+    push constant 13
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 4
+    add
+    push this 1
+    push constant 14
+    add
+    push this 0
+    push constant 27
+    add
+    push this 1
+    push constant 14
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 4
+    add
+    push this 1
+    push constant 15
+    add
+    push this 0
+    push constant 27
+    add
+    push this 1
+    push constant 15
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 6
+    add
+    push this 1
+    push constant 16
+    add
+    push this 0
+    push constant 25
+    add
+    push this 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 6
+    add
+    push this 1
+    push constant 17
+    add
+    push this 0
+    push constant 25
+    add
+    push this 1
+    push constant 17
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 18
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 18
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 19
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    push this 0
+    push constant 12
+    add
+    push this 1
+    push constant 8
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 13
+    add
+    push this 1
+    push constant 8
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 18
+    add
+    push this 1
+    push constant 8
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 19
+    add
+    push this 1
+    push constant 8
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 12
+    add
+    push this 1
+    push constant 9
+    add
+    push this 0
+    push constant 19
+    add
+    push this 1
+    push constant 9
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 10
+    add
+    push this 1
+    push constant 14
+    add
+    push this 0
+    push constant 21
+    add
+    push this 1
+    push constant 14
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push this 0
+    push constant 14
+    add
+    push this 1
+    push constant 16
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 15
+    add
+    push this 1
+    push constant 16
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 14
+    add
+    push this 1
+    push constant 17
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 15
+    add
+    push this 1
+    push constant 17
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 10
+    add
+    push this 1
+    push constant 18
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 11
+    add
+    push this 1
+    push constant 18
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 20
+    add
+    push this 1
+    push constant 18
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 21
+    add
+    push this 1
+    push constant 18
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 8
+    add
+    push this 1
+    push constant 20
+    add
+    push this 0
+    push constant 13
+    add
+    push this 1
+    push constant 21
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push this 0
+    push constant 18
+    add
+    push this 1
+    push constant 20
+    add
+    push this 0
+    push constant 23
+    add
+    push this 1
+    push constant 21
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push this 0
+    push constant 10
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 11
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 14
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 15
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 18
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 19
+    add
+    push this 1
+    push constant 24
+    add
+    call Screen.drawPixel 2
+    pop temp 0
+    push this 0
+    push constant 14
+    add
+    push this 1
+    push constant 28
+    add
+    push this 0
+    push constant 15
+    add
+    push this 1
+    push constant 29
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push constant 0
+    return
+function Ship.erase 0
+    push argument 0
+    pop pointer 0
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    push this 0
+    push this 1
+    push this 0
+    push constant 31
+    add
+    push this 1
+    push constant 31
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push constant 0
+    return
+function Ship.moveLeft 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 18
+    gt
+    not
+    if-goto Ship_1
+    push pointer 0
+    call Ship.erase 1
+    pop temp 0
+    push this 0
+    push constant 6
+    sub
+    pop this 0
+    push pointer 0
+    call Ship.draw 1
+    pop temp 0
+    goto Ship_0
+label Ship_1
+label Ship_0
+    push constant 0
+    return
+function Ship.moveRight 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 465
+    lt
+    not
+    if-goto Ship_3
+    push pointer 0
+    call Ship.erase 1
+    pop temp 0
+    push this 0
+    push constant 6
+    add
+    pop this 0
+    push pointer 0
+    call Ship.draw 1
+    pop temp 0
+    goto Ship_2
+label Ship_3
+label Ship_2
+    push constant 0
+    return
+function Ship.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function Ship.Shoot 9
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 0
+    push constant 1
+    neg
+    push constant 1
+    neg
+    call Monster.new 2
+    pop local 2
+    push constant 999
+    pop local 6
+label Ship_4
+    push local 0
+    push constant 30
+    lt
+    not
+    if-goto Ship_5
+    push this 2
+    push local 0
+    call MonsterController.GetMonser 2
+    pop local 1
+    push local 1
+    call Monster.GetX 1
+    push constant 1
+    sub
+    pop local 4
+    push local 1
+    call Monster.GetX 1
+    push constant 33
+    add
+    pop local 5
+    push this 0
+    push constant 14
+    add
+    pop local 7
+    push this 0
+    push constant 16
+    add
+    pop local 8
+    push local 6
+    push constant 999
+    eq
+    not
+    if-goto Ship_7
+    push local 4
+    push local 8
+    lt
+    not
+    if-goto Ship_9
+    push local 7
+    push local 5
+    lt
+    not
+    if-goto Ship_11
+    push local 1
+    pop local 2
+    push local 0
+    pop local 6
+    goto Ship_10
+label Ship_11
+label Ship_10
+    goto Ship_8
+label Ship_9
+label Ship_8
+    goto Ship_6
+label Ship_7
+label Ship_6
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Ship_4
+label Ship_5
+    push this 0
+    push constant 15
+    add
+    push local 2
+    call Bullet.new 2
+    pop local 3
+    push local 3
+    call Bullet.fly 1
+    pop temp 0
+    push local 6
+    push constant 999
+    eq
+    not
+    not
+    if-goto Ship_13
+    push this 2
+    push local 6
+    call MonsterController.DeleteMonster 2
+    pop temp 0
+    push this 3
+    call GameCounter.IncreaseScore 1
+    pop temp 0
+    goto Ship_12
+label Ship_13
+label Ship_12
+    push constant 0
+    return

@@ -1,0 +1,74 @@
+function GameCounter.new 0
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 0
+    pop this 0
+    push constant 0
+    pop this 1
+    push pointer 0
+    return
+function GameCounter.IncreaseScore 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 50
+    add
+    pop this 0
+    push constant 0
+    return
+function GameCounter.MonsterCounter 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 50
+    call Math.divide 2
+    pop this 1
+    push this 1
+    return
+function GameCounter.GetScore 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function GameCounter.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function GameCounter.DrawScore 2
+    push argument 0
+    pop pointer 0
+    push constant 450
+    pop local 0
+    push constant 230
+    pop local 1
+    push constant 22
+    push constant 30
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    push local 0
+    push local 1
+    push local 0
+    push constant 40
+    add
+    push local 1
+    push constant 10
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push constant 1
+    neg
+    call Screen.setColor 1
+    pop temp 0
+    push this 0
+    call Output.printInt 1
+    pop temp 0
+    push constant 0
+    return

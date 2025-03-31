@@ -1,0 +1,353 @@
+function Main.Level1 6
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 5
+    push constant 1
+    pop local 1
+    push constant 10
+    call MonsterController.new 1
+    pop local 3
+    push constant 120
+    push constant 210
+    push local 3
+    push argument 1
+    call Ship.new 4
+    pop local 0
+label Main_0
+    push local 5
+    not
+    not
+    if-goto Main_1
+    call Keyboard.keyPressed 0
+    pop local 2
+    push local 2
+    push constant 130
+    eq
+    not
+    if-goto Main_3
+    push constant 1
+    pop local 1
+    goto Main_2
+label Main_3
+label Main_2
+    push local 2
+    push constant 132
+    eq
+    not
+    if-goto Main_5
+    push constant 2
+    pop local 1
+    goto Main_4
+label Main_5
+label Main_4
+    push local 2
+    push constant 32
+    eq
+    not
+    if-goto Main_7
+    push local 0
+    call Ship.Shoot 1
+    pop temp 0
+    goto Main_6
+label Main_7
+label Main_6
+    push local 1
+    push constant 1
+    eq
+    not
+    if-goto Main_9
+    push local 0
+    call Ship.moveLeft 1
+    pop temp 0
+    goto Main_8
+label Main_9
+label Main_8
+    push local 1
+    push constant 2
+    eq
+    not
+    if-goto Main_11
+    push local 0
+    call Ship.moveRight 1
+    pop temp 0
+    goto Main_10
+label Main_11
+label Main_10
+    push local 3
+    push constant 60
+    push constant 7
+    push constant 1
+    call MonsterController.Update 4
+    pop temp 0
+    push argument 1
+    call GameCounter.DrawScore 1
+    pop temp 0
+    push constant 10
+    call Sys.wait 1
+    pop temp 0
+    push argument 1
+    call GameCounter.MonsterCounter 1
+    pop local 4
+    push local 4
+    push constant 10
+    eq
+    not
+    if-goto Main_13
+    push constant 1
+    neg
+    pop local 5
+    goto Main_12
+label Main_13
+label Main_12
+    goto Main_0
+label Main_1
+    push constant 0
+    return
+function Main.Level2 6
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 5
+    push constant 1
+    pop local 1
+    push constant 30
+    call MonsterController.new 1
+    pop local 3
+    push constant 120
+    push constant 210
+    push local 3
+    push argument 1
+    call Ship.new 4
+    pop local 0
+label Main_14
+    push local 5
+    not
+    not
+    if-goto Main_15
+    call Keyboard.keyPressed 0
+    pop local 2
+    push local 2
+    push constant 130
+    eq
+    not
+    if-goto Main_17
+    push constant 1
+    pop local 1
+    goto Main_16
+label Main_17
+label Main_16
+    push local 2
+    push constant 132
+    eq
+    not
+    if-goto Main_19
+    push constant 2
+    pop local 1
+    goto Main_18
+label Main_19
+label Main_18
+    push local 2
+    push constant 32
+    eq
+    not
+    if-goto Main_21
+    push local 0
+    call Ship.Shoot 1
+    pop temp 0
+    goto Main_20
+label Main_21
+label Main_20
+    push local 1
+    push constant 1
+    eq
+    not
+    if-goto Main_23
+    push local 0
+    call Ship.moveLeft 1
+    pop temp 0
+    goto Main_22
+label Main_23
+label Main_22
+    push local 1
+    push constant 2
+    eq
+    not
+    if-goto Main_25
+    push local 0
+    call Ship.moveRight 1
+    pop temp 0
+    goto Main_24
+label Main_25
+label Main_24
+    push local 3
+    push constant 55
+    push constant 10
+    push constant 2
+    call MonsterController.Update 4
+    pop temp 0
+    push argument 1
+    call GameCounter.DrawScore 1
+    pop temp 0
+    push constant 10
+    call Sys.wait 1
+    pop temp 0
+    push argument 1
+    call GameCounter.MonsterCounter 1
+    pop local 4
+    push local 4
+    push constant 30
+    eq
+    not
+    if-goto Main_27
+    push constant 1
+    neg
+    pop local 5
+    goto Main_26
+label Main_27
+label Main_26
+    goto Main_14
+label Main_15
+    push constant 0
+    return
+function Main.Level3 6
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 5
+    push constant 1
+    pop local 1
+    push constant 65
+    call MonsterController.new 1
+    pop local 3
+    push constant 120
+    push constant 210
+    push local 3
+    push argument 1
+    call Ship.new 4
+    pop local 0
+label Main_28
+    push local 5
+    not
+    not
+    if-goto Main_29
+    call Keyboard.keyPressed 0
+    pop local 2
+    push local 2
+    push constant 130
+    eq
+    not
+    if-goto Main_31
+    push constant 1
+    pop local 1
+    goto Main_30
+label Main_31
+label Main_30
+    push local 2
+    push constant 132
+    eq
+    not
+    if-goto Main_33
+    push constant 2
+    pop local 1
+    goto Main_32
+label Main_33
+label Main_32
+    push local 2
+    push constant 32
+    eq
+    not
+    if-goto Main_35
+    push local 0
+    call Ship.Shoot 1
+    pop temp 0
+    goto Main_34
+label Main_35
+label Main_34
+    push local 1
+    push constant 1
+    eq
+    not
+    if-goto Main_37
+    push local 0
+    call Ship.moveLeft 1
+    pop temp 0
+    goto Main_36
+label Main_37
+label Main_36
+    push local 1
+    push constant 2
+    eq
+    not
+    if-goto Main_39
+    push local 0
+    call Ship.moveRight 1
+    pop temp 0
+    goto Main_38
+label Main_39
+label Main_38
+    push local 3
+    push constant 40
+    push constant 15
+    push constant 3
+    call MonsterController.Update 4
+    pop temp 0
+    push argument 1
+    call GameCounter.DrawScore 1
+    pop temp 0
+    push constant 10
+    call Sys.wait 1
+    pop temp 0
+    push argument 1
+    call GameCounter.MonsterCounter 1
+    pop local 4
+    push local 4
+    push constant 65
+    eq
+    not
+    if-goto Main_41
+    push constant 1
+    neg
+    pop local 5
+    goto Main_40
+label Main_41
+label Main_40
+    goto Main_28
+label Main_29
+    push constant 0
+    return
+function Main.main 2
+    call GameCounter.new 0
+    pop local 0
+    call Interface.new 0
+    pop local 1
+    push local 1
+    call Interface.drawStartString 1
+    pop temp 0
+    push local 1
+    call Interface.drawFirstLevel 1
+    pop temp 0
+    push pointer 0
+    push local 0
+    call Main.Level1 2
+    pop temp 0
+    push local 1
+    call Interface.drawSecondLevel 1
+    pop temp 0
+    push pointer 0
+    push local 0
+    call Main.Level2 2
+    pop temp 0
+    push local 1
+    call Interface.drawThirdLevel 1
+    pop temp 0
+    push pointer 0
+    push local 0
+    call Main.Level3 2
+    pop temp 0
+    push local 1
+    push local 0
+    call Interface.PrintScore 2
+    pop temp 0
+    push constant 0
+    return
