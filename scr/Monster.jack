@@ -7,6 +7,7 @@ class Monster {
         if (nowY > -1){
             do draw();
         }
+
         return this;
     }
 
@@ -86,7 +87,6 @@ class Monster {
         do Screen.drawRectangle(monsterX, monsterY - speed2, monsterX + monsterSize, monsterY + monsterSize);
         do draw();
         let monsterY = monsterY + speed2;
-
         return;
     }
 }

@@ -12,6 +12,7 @@ class Bullet{
         else{
             let bulletToY = bulletMonster.GetY() + 32;
         }
+        
         let bulletNowY = 200;
         return this;
     }

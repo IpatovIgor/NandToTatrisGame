@@ -8,7 +8,7 @@ class Interface{
     constructor Interface new(){
         let startMessage = "Press Enter to start";
         let winMessage = "You won!";
-        let loseMessage = "Pososi Olux";
+        let loseMessage = "Loser";
         let firstLevel = "First Level";
         
         let secondLevel = "Second Level";

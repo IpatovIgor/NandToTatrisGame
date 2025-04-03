@@ -79,6 +79,7 @@ class Ship {
             let shipX = shipX - 6;
             do draw();
         }
+
         return;
     }
 
@@ -88,6 +89,7 @@ class Ship {
             let shipX = shipX + 6;
             do draw();
         }
+        
         return;
     }
 

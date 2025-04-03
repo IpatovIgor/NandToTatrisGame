@@ -15,6 +15,7 @@ class MonsterController{
             let i = i + 1;
             let monsterArray[i] = -1;
         }
+
         let spaceSize = 103;
         let controllerIndex = 0;
         return this;
@@ -33,6 +34,7 @@ class MonsterController{
                     let makeLine = false;
                 }
             }
+            
             let i = i + 1;
         }
 
